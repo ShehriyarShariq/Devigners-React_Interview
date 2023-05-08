@@ -22,7 +22,7 @@ const Layout = ({ children, router }: LayoutProps) => {
     <>
       <Meta />
       <Providers path={router.pathname}>
-        <main className="w-full h-full">{children}</main>
+        <main className="w-full h-full bg-bg_color">{children}</main>
       </Providers>
     </>
   )
