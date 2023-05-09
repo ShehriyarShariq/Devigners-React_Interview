@@ -20,3 +20,9 @@ export interface SocialLink {
   label: string
   icon: string
 }
+
+export interface SignupFields {
+  email?: string
+  name?: string
+  password?: string
+}

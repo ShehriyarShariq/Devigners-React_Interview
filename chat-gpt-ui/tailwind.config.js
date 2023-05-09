@@ -48,6 +48,7 @@ module.exports = {
       input_field_border_color: '#484A5C',
       input_field_shadow_color: '#1018280D',
       input_field_placeholder_text_color: '#EAEAEA',
+      input_field_error_text_color: '#FF0000',
 
       checkbox_bg_color: '#FFFFFF',
       checkbox_border_color: '#D0D5DD',

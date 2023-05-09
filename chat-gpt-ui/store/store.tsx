@@ -1,9 +1,14 @@
 import React, { useContext, useReducer, ReactNode } from 'react'
 
 import ChatReducer, { StateProps as ChatStateProps } from './reducers/chat'
+import SignupReducer, {
+  StateProps as SignupStateProps,
+} from './reducers/signup'
+import signup from './reducers/signup'
 
 interface InitialStateProps {
   chat: ChatStateProps
+  signup: SignupStateProps
 }
 
 interface StoreProviderProps {
@@ -15,10 +20,12 @@ Store.displayName = 'Store'
 
 const initialState: InitialStateProps = {
   chat: ChatReducer.initialState,
+  signup: SignupReducer.initialState,
 }
 
-const rootReducer = ({ chat }: InitialStateProps, action: any) => ({
+const rootReducer = ({ chat, signup }: InitialStateProps, action: any) => ({
   chat: ChatReducer.reducer(chat, action),
+  signup: SignupReducer.reducer(signup, action),
 })
 
 export const useStore = () => useContext(Store)

@@ -1,6 +1,4 @@
 import React from 'react'
-import PrimaryButton from '../button/PrimaryButton'
-import SocialButton from '../button/SocialButton'
 import Link from 'next/link'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
@@ -28,7 +26,7 @@ const AuthForm = ({ isLogin }: AuthFormProps) => {
         </div>
         {isLogin ? <LoginForm /> : <SignupForm />}
         <div className="mt-8 text-sm text-center">
-          Don't have an account?{' '}
+          {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
           <Link
             href={`/auth/${isLogin ? 'signup' : 'login'}`}
             className="text-secondary font-semibold"

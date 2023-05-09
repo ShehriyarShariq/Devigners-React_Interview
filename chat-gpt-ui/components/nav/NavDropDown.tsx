@@ -16,7 +16,7 @@ const NavDropDown = ({ label, options }: NavDropDownProps) => {
       <button
         type="button"
         aria-haspopup="menu"
-        className="font-semibold text-nav_link_color flex items-center gap-3 pb-2"
+        className="font-semibold text-nav_link_color flex items-center gap-3 "
       >
         {label}
         <img className="w-3" src="/icons/down_arrow.svg" alt="Down Arrow" />

@@ -64,7 +64,7 @@ const NavBar = ({ isSections }: NavBarProps) => {
   return (
     <div
       className={
-        'h-[50px] my-4 ' +
+        'h-[50px] my-4 z-10 ' +
         (isSections
           ? 'w-full grid grid-cols-[280px_1fr] pr-8'
           : 'w-[84%] mx-auto flex flex-row')

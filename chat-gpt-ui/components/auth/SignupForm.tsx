@@ -1,43 +1,25 @@
-import React from 'react'
-import SocialButton from '../button/SocialButton'
-import PrimaryButton from '../button/PrimaryButton'
-import InputField from './InputField'
+import React, { useMemo } from 'react'
+import { useStore } from '../../store/store'
+import SignupStepOne from './signup_steps/SignupStepOne'
+import SignupStepTwo from './signup_steps/SignupStepTwo'
+import { moveToNextStep } from '../../store/actions/signup'
 
 const SignupForm = () => {
-  return (
-    <>
-      <div className="mb-4">
-        <InputField type={'email'} placeholder={'Enter your email'} />
-      </div>
-      <PrimaryButton label={'Get started'} isFill={true} onClick={() => {}} />
-      <div className="relative my-5">
-        <hr className="w-full absolute z-0 top-1/2 -translate-y-1/2" />
-        <div className="w-fit text-sm text-auth_form_text_color relative z-10 text-center bg-bg_color p-2 mx-auto">
-          OR
-        </div>
-      </div>
-      <div className="flex flex-col items-center gap-3">
-        <SocialButton
-          type="google"
-          isFill={true}
-          onClick={() => {}}
-          isLogin={false}
-        />
-        <SocialButton
-          type="facebook"
-          isFill={true}
-          onClick={() => {}}
-          isLogin={false}
-        />
-        <SocialButton
-          type="apple"
-          isFill={true}
-          onClick={() => {}}
-          isLogin={false}
-        />
-      </div>
-    </>
-  )
+  const [state, dispatch] = useStore()
+  const { signup } = state
+
+  const formStep = useMemo(() => {
+    switch (signup.step) {
+      case 1:
+        return <SignupStepOne onComplete={() => moveToNextStep()(dispatch)} />
+      case 2:
+        return <SignupStepTwo onComplete={() => alert('Success')} />
+      default:
+        return <></>
+    }
+  }, [signup.step])
+
+  return formStep
 }
 
 export default SignupForm
