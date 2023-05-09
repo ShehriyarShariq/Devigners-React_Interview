@@ -8,10 +8,15 @@
   box-sizing: border-box;
   font-weight: 400;
   font-family: "Inter";
+  /* font-size: 14px; */
 }
 
 html,
 body,
 #__next {
   height: 100%;
+}
+
+.chats_scroll > div:first-child {
+  overflow: auto !important;
 }
