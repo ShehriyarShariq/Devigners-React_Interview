@@ -2,11 +2,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import NavBar from '../../components/nav/NavBar'
 
-const Login: NextPage = () => {
+const Signup: NextPage = () => {
   return (
     <div className="w-full h-full">
       <Head>
-        <title>Login - ChatGPT</title>
+        <title>Sign up - ChatGPT</title>
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -21,4 +21,4 @@ const Login: NextPage = () => {
   )
 }
 
-export default Login
+export default Signup

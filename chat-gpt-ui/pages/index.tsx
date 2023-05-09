@@ -11,10 +11,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-full h-full relative">
+      <main className="w-full h-full flex relative">
         <div className="w-[280px] h-full absolute left-0 z-0 bg-chats_side_bar"></div>
-        <div className="relative z-10">
+        <div className="w-full flex-1 flex flex-col relative z-10">
           <NavBar isSections={true} />
+          <div className="w-full flex-1 grid grid-cols-[280px_1fr]">
+            <div></div>
+            <div className="w-full h-full">
+              
+            </div>
+          </div>
         </div>
       </main>
     </div>

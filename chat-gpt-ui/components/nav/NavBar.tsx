@@ -3,6 +3,7 @@ import { NavItem } from '../../interface/objects'
 import NavDropDown from './NavDropDown'
 import Link from 'next/link'
 import PrimaryButton from '../button/PrimaryButton'
+import { useRouter } from 'next/router'
 
 interface NavBarProps {
   isSections: boolean
@@ -58,23 +59,29 @@ const NavItems: {
 ]
 
 const NavBar = ({ isSections }: NavBarProps) => {
+  const router = useRouter()
+
   return (
     <div
       className={
-        'w-full h-[50px] py-4 ' +
-        (isSections ? 'grid grid-cols-[280px_1fr] pr-8' : '')
+        'h-[50px] my-4 ' +
+        (isSections
+          ? 'w-full grid grid-cols-[280px_1fr] pr-8'
+          : 'w-[84%] mx-auto flex flex-row')
       }
     >
-      <div className={isSections ? 'ml-8 w-[77%]' : 'w-auto'}>
+      <div className={isSections ? 'ml-8 w-[77%]' : 'w-60'}>
         <img
           src="/images/logo_full.svg"
           alt="Logo Full"
-          className="w-2/3 h-full object-contain"
+          className="w-2/3 h-full object-contain hover:cursor-pointer select-none"
+          onClick={() => router.push('/')}
         />
       </div>
       <div
         className={
-          'flex justify-between items-center ' + (isSections ? 'pl-8' : '')
+          'w-full flex justify-between items-center ' +
+          (isSections ? 'pl-8' : '')
         }
       >
         <div className="flex flex-row gap-8">
@@ -103,7 +110,11 @@ const NavBar = ({ isSections }: NavBarProps) => {
           >
             Login
           </Link>
-          <PrimaryButton label="Sign up" isFill={false} />
+          <PrimaryButton
+            label="Sign up"
+            isFill={false}
+            onClick={() => router.push('/auth/signup')}
+          />
         </div>
       </div>
     </div>
