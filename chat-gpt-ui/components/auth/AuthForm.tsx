@@ -2,6 +2,8 @@ import React from 'react'
 import PrimaryButton from '../button/PrimaryButton'
 import SocialButton from '../button/SocialButton'
 import Link from 'next/link'
+import LoginForm from './LoginForm'
+import SignupForm from './SignupForm'
 
 interface AuthFormProps {
   isLogin: boolean
@@ -9,7 +11,7 @@ interface AuthFormProps {
 
 const AuthForm = ({ isLogin }: AuthFormProps) => {
   return (
-    <div className="w-full h-full">
+    <div className="w-full flex-1">
       <div className="w-[360px] mt-20 mx-auto text-auth_form_text_color">
         <img
           src="/images/logo.svg"
@@ -24,47 +26,12 @@ const AuthForm = ({ isLogin }: AuthFormProps) => {
             ? 'Welcome back! Please enter your details.'
             : 'Start your 30-day free trial.'}
         </div>
-        <PrimaryButton
-          label={isLogin ? 'Sign in' : 'Get started'}
-          isFill={true}
-          onClick={() => {}}
-        />
-        {isLogin ? (
-          <>
-            <SocialButton
-              type="google"
-              isFill={true}
-              onClick={() => {}}
-              isLogin={isLogin}
-            />
-          </>
-        ) : (
-          <div className="flex flex-col items-center gap-3">
-            <SocialButton
-              type="google"
-              isFill={true}
-              onClick={() => {}}
-              isLogin={isLogin}
-            />
-            <SocialButton
-              type="facebook"
-              isFill={true}
-              onClick={() => {}}
-              isLogin={isLogin}
-            />
-            <SocialButton
-              type="apple"
-              isFill={true}
-              onClick={() => {}}
-              isLogin={isLogin}
-            />
-          </div>
-        )}
+        {isLogin ? <LoginForm /> : <SignupForm />}
         <div className="mt-8 text-sm text-center">
           Don't have an account?{' '}
           <Link
             href={`/auth/${isLogin ? 'signup' : 'login'}`}
-            className="text-secondary"
+            className="text-secondary font-semibold"
           >
             {isLogin ? 'Sign up' : 'Log in'}
           </Link>

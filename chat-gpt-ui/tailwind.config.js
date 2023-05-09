@@ -41,6 +41,16 @@ module.exports = {
       chat_default_preview_example_text_color: '#EAEAEA',
 
       auth_form_text_color: '#FFFFFF',
+
+      input_field_label_text_color: '#FFFFFF',
+      input_field_text_color: '#FFFFFF',
+      input_field_bg_color: '#3E3F4B',
+      input_field_border_color: '#484A5C',
+      input_field_shadow_color: '#1018280D',
+      input_field_placeholder_text_color: '#EAEAEA',
+
+      checkbox_bg_color: '#FFFFFF',
+      checkbox_border_color: '#D0D5DD',
     },
     extend: {
       fontFamily: {
