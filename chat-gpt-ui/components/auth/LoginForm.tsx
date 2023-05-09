@@ -11,6 +11,7 @@ const LoginForm = () => {
   const initialValues: LoginSchemaProps = {
     email: '',
     password: '',
+    rememberMe: false,
   }
 
   const { values, handleChange, handleSubmit, errors, touched } = useFormik({
@@ -50,10 +51,9 @@ const LoginForm = () => {
         </div>
         <div className="mb-6 flex justify-between items-center">
           <LabelCheckbox
-            id="remember"
-            name="remember"
-            checked={false}
-            onChange={function (event) {}}
+            name="rememberMe"
+            checked={values.rememberMe}
+            onChange={handleChange}
             label={'Remember for 30 days'}
           />
           <Link href="/auth/login">

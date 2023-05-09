@@ -7,6 +7,7 @@ const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/
 export interface LoginSchemaProps {
   email: string
   password: string
+  rememberMe: boolean
 }
 
 export const loginSchema = Yup.object().shape({
@@ -15,6 +16,7 @@ export const loginSchema = Yup.object().shape({
     .min(6)
     .matches(passwordRules, { message: 'Please enter a valid password' })
     .required('Required'),
+  rememberMe: Yup.boolean().default(false),
 })
 
 export interface SignupStepOneSchemaProps {
